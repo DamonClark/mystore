@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { HttpService } from '../http.service';
 
 @Component({
@@ -7,8 +7,10 @@ import { HttpService } from '../http.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+
   productList!: any[];
-  
+  product!: any[];
+
   constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
@@ -17,8 +19,4 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  getProducts(): void {
-    this.httpService.getProducts();
-    alert("Added!");
-  }
 }
