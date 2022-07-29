@@ -6,4 +6,4 @@ My store is a Udacity course that is designed to reflect the same user experienc
 
 Clone down the repository and run `npm install` in the main directory of project to get started.
 
-Run `ng server` to start up the server on port 300
+Run `npm run start` to start up the server on port 300
