@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { HttpService } from '../http.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-product-details',
@@ -8,16 +10,30 @@ import { HttpService } from '../http.service';
 })
 export class ProductDetailsComponent implements OnInit {
   
-  productName!: string;
-  @Input() product: any;
+  @Input() product: any = [];
+  // @Output() productAdded = new EventEmitter();
+  productDetails: any = [];
 
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService,
+              private route: ActivatedRoute,
+              private location: Location,
+              ) { }
 
   ngOnInit(): void {
-    this.httpService.getProducts().subscribe(data => {
-      this.productName = data[1].name;
-    });  
+    this.getProduct()
   };
 
+  getProduct(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.httpService.getProductDetails(id)
+      .subscribe(data => this.product = data);
+  }
 
+  goBack(): void {
+    this.location.back();
+  }
+
+  addProductToCart(product: object): void {
+    this.httpService.addToShoppingCart(product);
+  }
 }
