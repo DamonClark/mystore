@@ -9,7 +9,8 @@ import { HttpService } from '../http.service';
 
 export class ShoppingCartComponent implements OnInit {
 
-  shoppingList: string[] = [];
+  shoppingList: any[] = [];
+  product: any[] = [];
 
   constructor(private httpService: HttpService) { }
 
