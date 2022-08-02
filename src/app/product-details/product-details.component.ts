@@ -11,8 +11,6 @@ import { Location } from '@angular/common';
 export class ProductDetailsComponent implements OnInit {
   
   @Input() product: any = [];
-  // @Output() productAdded = new EventEmitter();
-  productDetails: any = [];
 
   constructor(private httpService: HttpService,
               private route: ActivatedRoute,

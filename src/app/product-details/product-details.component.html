@@ -1,5 +1,5 @@
-<li>{{ product.name }}</li>
-<li>{{ product.price }}</li>
-<li [routerLink]="['/product', product.id]" routerLinkActive="router-link-active" ><img width="150" height="150" src="{{ product.url }}"/></li>
+<li>{{ product?.name }}</li>
+<li>{{ product?.price }}</li>
+<li [routerLink]="['/product', product?.id]" routerLinkActive="router-link-active" ><img width="150" height="150" src="{{ product?.url }}"/></li>
 <button (click)="addProductToCart(product)">Add to shopping cart</button>
 <button (click)="goBack()">return to product list</button>

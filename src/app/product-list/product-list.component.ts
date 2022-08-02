@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { HttpService } from '../http.service';
+import { Product } from '../models/Product.model'
 
 @Component({
   selector: 'app-product-list',
@@ -8,15 +9,18 @@ import { HttpService } from '../http.service';
 })
 export class ProductListComponent implements OnInit {
 
-  productList: any = [];
-  product: any = [];
+  productList?: Product[] = [];
 
   constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
     this.httpService.getProducts().subscribe(data => {
       this.productList = data;
+      console.log(this.productList)
     });
   } 
 
+  addProductToCart(product: object): void {
+    this.httpService.addToShoppingCart(product);
+  }
 }
