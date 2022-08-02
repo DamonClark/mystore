@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from '../http.service';
 import { Location } from '@angular/common';
 
@@ -11,14 +11,18 @@ import { Location } from '@angular/common';
 export class ProductDetailsComponent implements OnInit {
   
   @Input() product: any = [];
+  mybool!: boolean;
 
   constructor(private httpService: HttpService,
               private route: ActivatedRoute,
               private location: Location,
+              public router: Router,
               ) { }
 
   ngOnInit(): void {
-    this.getProduct()
+    if (this.route.snapshot.paramMap.get('id') != null) { 
+      this.getProduct()
+    }
   };
 
   getProduct(): void {

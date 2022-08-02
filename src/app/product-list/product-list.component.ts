@@ -9,14 +9,13 @@ import { Product } from '../models/Product.model'
 })
 export class ProductListComponent implements OnInit {
 
-  productList?: Product[] = [];
+  productList?: Product[];
 
   constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
     this.httpService.getProducts().subscribe(data => {
       this.productList = data;
-      console.log(this.productList)
     });
   } 
 
