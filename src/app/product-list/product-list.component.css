@@ -1,0 +1,9 @@
+h1 {
+	font-size: 1.8em;
+}
+
+.products {
+	border-top: 0;
+	font: 100%/1.6 palatino, georgia, serif;
+	padding: 0 1em 2em;
+}

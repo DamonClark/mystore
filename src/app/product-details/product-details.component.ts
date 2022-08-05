@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from '../http.service';
 import { Location } from '@angular/common';
+import { Product } from '../models/Product.model'
+
 
 @Component({
   selector: 'app-product-details',
@@ -10,8 +12,8 @@ import { Location } from '@angular/common';
 })
 export class ProductDetailsComponent implements OnInit {
   
-  @Input() product: any = [];
-  mybool!: boolean;
+  @Input() product: any = Product;
+   quantity: any = [];
 
   constructor(private httpService: HttpService,
               private route: ActivatedRoute,
@@ -35,7 +37,10 @@ export class ProductDetailsComponent implements OnInit {
     this.location.back();
   }
 
-  addProductToCart(product: object): void {
+  addProductToCart(product: Product): void {
+    product.quantity = this.quantity;
+    console.log(product.quantity)
     this.httpService.addToShoppingCart(product);
+
   }
 }

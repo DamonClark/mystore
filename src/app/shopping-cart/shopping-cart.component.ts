@@ -10,13 +10,16 @@ import { HttpService } from '../http.service';
 export class ShoppingCartComponent implements OnInit {
 
   shoppingList: any[] = [];
-  product: any[] = [];
+  totalProductPrice: any;
+  product: any = [];
+  price: any = "";
+
 
   constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
     this.shoppingList = this.httpService.getShoppingCartList();
-    console.log(this.shoppingList)
   }
 
+  
 }
