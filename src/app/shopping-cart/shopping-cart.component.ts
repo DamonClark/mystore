@@ -21,5 +21,4 @@ export class ShoppingCartComponent implements OnInit {
     this.shoppingList = this.httpService.getShoppingCartList();
   }
 
-  
 }

@@ -10,24 +10,32 @@ import { HttpService } from '../http.service';
 export class ShoppingCartListComponent implements OnInit {
 
 
-  @Input() shoppingList: string[] = [];
+  @Input() shoppingList: any = [];
   @Input() product: any = [];
-  totalProductPrice: number = 1;
-  totalPrice: number = 1;
+  totalProductPrice: number = 0;
 
   constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
     this.totalProductPrice = this.product.price * this.product.quantity
+    this.totalCost();
   }
 
   totalCost() {
-    if (this.shoppingList.length < 2) {
-      this.totalProductPrice = this.product.price * this.product.quantity
-      return this.totalProductPrice
-    } else {  
-      this.totalProductPrice = this.product.price * this.product.quantity
-      return this.totalProductPrice + this.totalProductPrice
-    }
+    if (this.shoppingList != null)
+      if (this.shoppingList.length < 2) {
+        this.totalProductPrice = this.product.price * this.product.quantity
+        return this.totalProductPrice
+      } else {
+        console.log(this.shoppingList.length);
+        let totalPrice: number = 0
+        for(const p of this.shoppingList) {
+        totalPrice = totalPrice + (p.price * p.quantity)
+        }
+        return totalPrice;
+      }
+    else {
+      return this.totalProductPrice;
+    } 
   }
 }

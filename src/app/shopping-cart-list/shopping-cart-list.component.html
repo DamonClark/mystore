@@ -2,5 +2,5 @@
 <li>Price: {{ totalProductPrice }}</li>
 <li><img width="150" height="150" src="{{ product.url }}"/></li>
 <li>Amount: {{ product?.quantity }}</li>
-<li>Total Amount: {{ totalCost() }}</li>
+<li *ngIf="this.shoppingList.last()">Total Amount: {{ totalCost() }}</li>
 
