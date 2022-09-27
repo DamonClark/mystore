@@ -1,6 +1,7 @@
+<ul>
 <li>Product: {{ product.name }}</li>
 <li>Price: {{ totalProductPrice }}</li>
-<li><img width="150" height="150" src="{{ product.url }}"/></li>
+<li float="left"><img width="150" height="150" src="{{ product.url }}"/></li>
 <li>Amount: {{ product?.quantity }}</li>
-<li *ngIf="this.shoppingList.last()">Total Amount: {{ totalCost() }}</li>
+</ul>
 

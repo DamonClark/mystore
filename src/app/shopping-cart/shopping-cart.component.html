@@ -1,2 +1,16 @@
+<div class="cart">
 <h1>Shopping Cart</h1>
-<app-shopping-cart-list *ngFor="let product of shoppingList" [shoppingList]="shoppingList" [product]="product"></app-shopping-cart-list>
+<app-shopping-cart-list *ngFor="let product of shoppingList" [product]="product"></app-shopping-cart-list>
+<br>
+<form>
+	<label>First name:</label>
+	<input type="text"><br>
+	
+	<label>Last name:</label>
+	<input type="text"><br>
+	
+	<label>Credit Card Number:</label>
+	<input type="text"><br>
+</form> 
+<li>Total Amount: {{ totalCost() }}</li>
+</div>

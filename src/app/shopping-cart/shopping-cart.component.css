@@ -1,0 +1,14 @@
+.cart {
+	margin: auto;
+	padding: 20px;
+	text-align: center;
+	height: auto;
+	justify-content: center;
+	flex-wrap: wrap;
+	transition: 0.5s;
+}
+
+li { 
+	list-style-type: none;
+	padding: 5px;
+}

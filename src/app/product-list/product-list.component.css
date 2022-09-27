@@ -3,7 +3,11 @@ h1 {
 }
 
 .products {
-	border-top: 0;
-	font: 100%/1.6 palatino, georgia, serif;
-	padding: 0 1em 2em;
+	width:100%;
+	min-height:260px;
+	height: auto;
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	transition: 0.5s;
 }

@@ -1,8 +1,33 @@
 .navigation {
-	border-top: 0;
-	font: 100%/1.6 palatino, georgia, serif;
-	padding: 0 1em 2em;
-	float: center;
-	background-color: aqua;
+  background-color: #333;
+  overflow: hidden;
 }
 
+.navigation a {
+  float: left;
+  color: #f2f2f2;
+  text-align: bottom;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  margin-top: 12px;
+}
+
+.navigation a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.navigation a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.navigation h1 {
+	float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 8px 10px;
+  text-decoration: none;
+  font-size: 20px;
+}

@@ -7,6 +7,7 @@ import { Product } from '../models/Product.model'
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
+
 export class ProductListComponent implements OnInit {
 
   productList?: Product[];

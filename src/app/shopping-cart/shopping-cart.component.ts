@@ -9,8 +9,7 @@ import { HttpService } from '../http.service';
 
 export class ShoppingCartComponent implements OnInit {
 
-  shoppingList: any[] = [];
-  totalProductPrice: any;
+  shoppingList: any = [];
   product: any = [];
   price: any = "";
 
@@ -19,6 +18,21 @@ export class ShoppingCartComponent implements OnInit {
 
   ngOnInit(): void {
     this.shoppingList = this.httpService.getShoppingCartList();
+    this.totalCost();
   }
 
+  totalCost() {
+    if (this.shoppingList != 0) {
+        console.log(this.shoppingList.length);
+        let totalPrice: number = 0
+        for(const p of this.shoppingList) {
+        totalPrice = totalPrice + (p.price * p.quantity)
+        }
+        return totalPrice;
+      }
+    else {
+      console.log('test')
+      return "";
+    } 
+  }
 }
